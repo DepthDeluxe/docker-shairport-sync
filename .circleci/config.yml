@@ -18,5 +18,5 @@ jobs:
       - setup_remote_docker
       - run: |
           echo "$DOCKER_TOKEN" | docker login --username "$DOCKER_USER" --password-stdin
-          docker build -t "depthdeluxe/shairport-sync:$CIRCLE_BRANCH"
+          docker build -t "depthdeluxe/shairport-sync:$CIRCLE_BRANCH" .
           docker push "depthdeluxe/shairport-sync:$CIRCLE_BRANCH"
