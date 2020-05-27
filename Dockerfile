@@ -1,5 +1,5 @@
 FROM alpine:edge
-MAINTAINER kevineye@gmail.com
+MAINTAINER colin@heinzmann.me
 
 RUN apk -U add \
         git \
@@ -14,6 +14,7 @@ RUN apk -U add \
         soxr-dev \
         avahi-dev \
         libconfig-dev \
+        libsndfile-dev \
 
  && cd /root \
  && git clone https://github.com/mikebrady/shairport-sync.git \
@@ -27,6 +28,8 @@ RUN apk -U add \
         --with-ssl=openssl \
         --with-soxr \
         --with-metadata \
+        --with-convolution \
+        --with-libdaemon \
  && make \
  && make install \
 
@@ -44,6 +47,8 @@ RUN apk -U add \
         soxr-dev \
         avahi-dev \
         libconfig-dev \
+        libsndfile-dev \
+
  && apk add \
         dbus \
         alsa-lib \
@@ -53,6 +58,8 @@ RUN apk -U add \
         soxr \
         avahi \
         libconfig \
+        libsndfile \
+
  && rm -rf \
         /etc/ssl \
         /var/cache/apk/* \
@@ -60,7 +67,10 @@ RUN apk -U add \
         /root/shairport-sync
 
 COPY start.sh /start
+RUN chmod 755 /start
 
 ENV AIRPLAY_NAME Docker
+ENV OUTPUT_DEVICE default
+ENV WITH_AVAHI true
 
 ENTRYPOINT [ "/start" ]

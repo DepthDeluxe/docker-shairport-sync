@@ -8,14 +8,18 @@
         --net host \
         --device /dev/snd \
         -e AIRPLAY_NAME=Docker \
-        kevineye/shairport-sync
+        -e OUTPUT_DEVICE=default \
+        -e OUTPUT_DEVICE=true \
+        depthdeluxe/shairport-sync
 
 ### Parameters
 
 * `--net host` must be run in host mode
 * `--device /dev/snd` share host alsa system with container. Does not require `--privileged` as `-v /dev/snd:/dev/snd` would
 * `-e AIRPLAY_NAME=Docker` set the AirPlay device name. Defaults to Docker
-* extra arguments will be passed to shairplay-sync (try `-- help`)
+* `-e OUTPUT_DEVICE=default` sets the shairport-sync output device.  Defaults to `default` which is specified by the parent system
+* `-e WITH_AVAHI=true` configures the system to run with the Avahi daemon inside the container.  Default is `true`.
+* extra arguments will be passed to shairport-sync (try `-- help`)
 
 ## More examples
 
