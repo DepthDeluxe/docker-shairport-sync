@@ -1,4 +1,4 @@
-[![depthdeluxe](https://circleci.com/gh/depthdeluxe/docker-shairport-sync.svg?style=svg)](https://app.circleci.com/pipelines/github/DepthDeluxe/docker-shairport-sync)
+[![DepthDeluxe](https://circleci.com/gh/DepthDeluxe/docker-shairport-sync.svg?style=svg)](https://app.circleci.com/pipelines/github/DepthDeluxe/docker-shairport-sync)[![](https://images.microbadger.com/badges/image/depthdeluxe/shairport-sync:master.svg)](https://microbadger.com/images/depthdeluxe/shairport-sync:master "Get your own image badge on microbadger.com")
 
 [shairport-sync](https://github.com/mikebrady/shairport-sync) is an Apple AirPlay receiver. It can receive audio directly from iOS devices, iTunes, etc. Multiple instances of shairport-sync will stay in sync with each other and other AirPlay devices when used with a compatible multi-room player, such as iTunes or [forked-daapd](https://github.com/jasonmc/forked-daapd).
 
