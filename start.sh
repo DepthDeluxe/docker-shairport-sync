@@ -13,4 +13,4 @@ else
     echo '::[warn] : Running with Avahi disabled'
 fi
 
-shairport-sync -m avahi -a "$AIRPLAY_NAME" -d "$OUTPUT_DEVICE" "$@"
+shairport-sync -m avahi -a "$AIRPLAY_NAME" -- -d "$OUTPUT_DEVICE" "$@"
