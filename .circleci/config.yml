@@ -26,11 +26,15 @@ workflows:
   commit:
     jobs:
       - build
-
+      
   nightly:
     triggers:
       - schedule:
-          cron: "0 0 * * 0"
+          # disabled, pending understanding of why https://github.com/mikebrady/shairport-sync/commit/2c8f324d2176dc59df99dfecb22e846f60aaefc3 broke the build with error
+          # Something went wrong bootstrapping makefile fragments
+          # https://app.circleci.com/pipelines/github/DepthDeluxe/docker-shairport-sync/75/workflows/7603745c-eba9-457a-a193-23cbe02c51e2/jobs/76
+          # cron: "0 0 * * 0"
+          cron: "0 0 1 1 *"
           filters:
             branches:
               only:
